@@ -76,6 +76,9 @@ def main():
         img_caffe = preprocess(image, style_size).type(dtype)
         style_images_caffe.append(img_caffe)
 
+    if params.init_image == "None": # SHort hack for ipython parsing
+        params.init_image = None
+
     if params.init_image != None:
         image_size = (content_image.size(2), content_image.size(3))
         init_image = preprocess(params.init_image, image_size).type(dtype)
